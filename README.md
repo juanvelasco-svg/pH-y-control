@@ -1,6 +1,6 @@
 # Portal de Aprendizaje: pH y Control Ácido-Base
 
-**Universidad de Lima** - Facultad de Ciencias
+**Universidad de Lima** - Facultad de Ingenieria
 
 ## 📚 Descripción
 
