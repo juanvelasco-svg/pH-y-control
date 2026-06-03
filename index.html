@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pH y Control Ácido-Base | Universidad de Lima</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container">
+            <div class="logo-section">
+                <img src="images/logo-universidad.png" alt="Universidad de Lima" class="logo">
+                <div class="header-text">
+                    <h1>Universidad de Lima</h1>
+                    <p>Facultad de Ciencias</p>
+                </div>
+            </div>
+            <nav class="main-nav">
+                <button onclick="showSection('inicio')" class="nav-btn active">Inicio</button>
+                <button onclick="showSection('contenido')" class="nav-btn">Contenido</button>
+                <button onclick="showSection('flashcards')" class="nav-btn">Flashcards</button>
+                <button onclick="showSection('quiz')" class="nav-btn">Quiz</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Sección Inicio -->
+    <section id="inicio" class="section active">
+        <div class="hero">
+            <div class="hero-content">
+                <h2>pH y Control Ácido-Base en Procesos</h2>
+                <p class="subtitle">Una decisión de pH puede costar US$ 2 millones</p>
+                
+                <div class="case-study">
+                    <h3>📋 Casos Reales</h3>
+                    <div class="case-grid">
+                        <div class="case-card">
+                            <img src="images/gold-king-mine.jpg" alt="Gold King Mine" class="case-image">
+                            <h4>Derrame Gold King Mine (2015)</h4>
+                            <p>EPA - Contaminación por metales pesados</p>
+                        </div>
+                        <div class="case-card">
+                            <img src="images/titicaca-lake.jpg" alt="Lago Titicaca" class="case-image">
+                            <h4>Lago Titicaca - Puno (2024)</h4>
+                            <p>PTAR inconclusa - pH: 9.2-9.6 (Norma: 6.5-9.0)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="objectives">
+                    <h3>🎯 Objetivos de Aprendizaje</h3>
+                    <ul>
+                        <li>Identificar compuestos ácidos y bases</li>
+                        <li>Comprender qué es el pH y pOH y para qué es útil</li>
+                        <li>Establecer reacciones de neutralización y su estequiometría</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Contenido -->
+    <section id="contenido" class="section">
+        <div class="container">
+            <!-- ¿Qué es pH? -->
+            <div class="content-block">
+                <h2>¿Qué significa pH?</h2>
+                <div class="content-grid">
+                    <div class="text-content">
+                        <p>Es una medida que indica qué tan ácida o básica es una sustancia basándose en la concentración del ión H⁺ o H₃O⁺</p>
+                        <div class="formula-box">
+                            <h3>Fórmula:</h3>
+                            <p class="formula">pH = -log([H⁺]) o pH = -log([H₃O⁺])</p>
+                        </div>
+                        <div class="key-points">
+                            <h4>Puntos Clave:</h4>
+                            <ul>
+                                <li><strong>Ácidos:</strong> pH < 7.0</li>
+                                <li><strong>Neutro:</strong> pH = 7.0</li>
+                                <li><strong>Bases:</strong> pH > 7.0</li>
+                                <li><strong>Relación:</strong> pH + pOH = 14</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="image-content">
+                        <img src="images/ph-scale.jpg" alt="Escala de pH" class="content-image">
+                        <p class="image-caption">Escala de pH y sus aplicaciones</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ácidos y Bases -->
+            <div class="content-block">
+                <h2>Compuestos Ácidos y Bases</h2>
+                <div class="table-container">
+                    <table class="info-table">
+                        <thead>
+                            <tr>
+                                <th>Tipo</th>
+                                <th>Ácidos Inorgánicos</th>
+                                <th>Ácidos Orgánicos</th>
+                                <th>Bases Inorgánicas</th>
+                                <th>Bases Orgánicas</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Fuertes</strong></td>
+                                <td>HCl, HNO₃, H₂SO₄</td>
+                                <td>-</td>
+                                <td>NaOH, KOH</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Débiles</strong></td>
+                                <td>HClO</td>
+                                <td>Acético, Cítrico, Ascórbico</td>
+                                <td>NH₃</td>
+                                <td>Etilamina</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="image-section">
+                    <img src="images/acid-base-examples.jpg" alt="Ejemplos de Ácidos y Bases" class="content-image">
+                </div>
+            </div>
+
+            <!-- Aplicaciones del pH -->
+            <div class="content-block">
+                <h2>Utilidad del pH en la Industria</h2>
+                <div class="applications-grid">
+                    <div class="app-card">
+                        <div class="app-icon">🍔</div>
+                        <h3>Industria de Alimentos</h3>
+                        <ul>
+                            <li>Encurtidos y Salsas: pH máx 4.6</li>
+                            <li>Yogur: pH 4.0-4.6</li>
+                            <li>Quesos: pH 4.1-5.9</li>
+                            <li>Vinos y Cervezas: pH 3.2-5.5</li>
+                        </ul>
+                    </div>
+                    <div class="app-card">
+                        <div class="app-icon">🌱</div>
+                        <h3>Agro-Industrial</h3>
+                        <ul>
+                            <li>Suelo Agrícola: pH 6.0-7.0</li>
+                            <li>Hidroponía: pH 5.5-6.5</li>
+                        </ul>
+                    </div>
+                    <div class="app-card">
+                        <div class="app-icon">♻️</div>
+                        <h3>Tratamiento de Agua</h3>
+                        <ul>
+                            <li>Eliminación metales: pH 8.0-11.0</li>
+                            <li>Digestores Anaeróbicos: pH 6.5-7.5</li>
+                        </ul>
+                    </div>
+                    <div class="app-card">
+                        <div class="app-icon">💊</div>
+                        <h3>Farmacéutica</h3>
+                        <ul>
+                            <li>Sangre: pH 7.4</li>
+                            <li>Piel: pH 5.5</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="image-section">
+                    <img src="images/food-ph.jpg" alt="pH en Alimentos" class="content-image">
+                </div>
+            </div>
+
+            <!-- Neutralización -->
+            <div class="content-block">
+                <h2>Reacciones de Neutralización</h2>
+                <div class="neutralization-content">
+                    <div class="reaction-box">
+                        <h3>Ecuación General:</h3>
+                        <p class="reaction-equation">Ácido + Base → Sal + Agua</p>
+                        <p class="reaction-example">HCl + NaOH → NaCl + H₂O</p>
+                    </div>
+                    
+                    <div class="stoichiometry">
+                        <h3>Estequiometría</h3>
+                        <div class="calculation-example">
+                            <h4>Ejemplo: ¿Cuánto NaOH necesito para neutralizar 73g de HCl?</h4>
+                            <div class="calculation-steps">
+                                <div class="step">
+                                    <strong>Paso 1:</strong> Masa molar HCl = 36.5 g/mol
+                                </div>
+                                <div class="step">
+                                    <strong>Paso 2:</strong> Moles de HCl = 73g / 36.5 g/mol = 2 mol
+                                </div>
+                                <div class="step">
+                                    <strong>Paso 3:</strong> Relación 1:1 → 2 mol NaOH
+                                </div>
+                                <div class="step">
+                                    <strong>Paso 4:</strong> Masa NaOH = 2 mol × 40 g/mol = <strong>80g</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <img src="images/neutralization.jpg" alt="Neutralización" class="content-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Flashcards -->
+    <section id="flashcards" class="section">
+        <div class="container">
+            <h2>Flashcards Interactivas</h2>
+            <p class="section-description">Haz clic en las tarjetas para revelar la respuesta</p>
+            
+            <div class="flashcards-container">
+                <div class="flashcard" onclick="flipCard(this)">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">
+                            <h3>¿Qué es el pH?</h3>
+                            <p class="hint">Haz clic para ver la respuesta</p>
+                        </div>
+                        <div class="flashcard-back">
+                            <p>Es una medida que indica qué tan ácida o básica es una sustancia, basada en la concentración de iones H⁺ o H₃O⁺</p>
+                            <p class="formula-small">pH = -log([H⁺])</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flashcard" onclick="flipCard(this)">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">
+                            <h3>Relación pH y pOH</h3>
+                            <p class="hint">Haz clic para ver la respuesta</p>
+                        </div>
+                        <div class="flashcard-back">
+                            <p>pH + pOH = 14</p>
+                            <p>A 25°C, esta relación siempre se cumple en soluciones acuosas</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flashcard" onclick="flipCard(this)">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">
+                            <h3>Ácido Fuerte</h3>
+                            <p class="hint">Haz clic para ver ejemplos</p>
+                        </div>
+                        <div class="flashcard-back">
+                            <p><strong>Inorgánicos:</strong> HCl, HNO₃, H₂SO₄</p>
+                            <p>Se disocian completamente en agua</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flashcard" onclick="flipCard(this)">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">
+                            <h3>Base Fuerte</h3>
+                            <p class="hint">Haz clic para ver ejemplos</p>
+                        </div>
+                        <div class="flashcard-back">
+                            <p><strong>Inorgánicos:</strong> NaOH, KOH, Ca(OH)₂</p>
+                            <p>Se disocian completamente en agua liberando OH⁻</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flashcard" onclick="flipCard(this)">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">
+                            <h3>Reacción de Neutralización</h3>
+                            <p class="hint">Haz clic para ver la ecuación</p>
+                        </div>
+                        <div class="flashcard-back">
+                            <p>Ácido + Base → Sal + Agua</p>
+                            <p>Ej: HCl + NaOH → NaCl + H₂O</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flashcard" onclick="flipCard(this)">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">
+                            <h3>pH en Alimentos</h3>
+                            <p class="hint">Haz clic para ver rangos</p>
+                        </div>
+                        <div class="flashcard-back">
+                            <p><strong>Yogur:</strong> 4.0-4.6</p>
+                            <p><strong>Quesos:</strong> 4.1-5.9</p>
+                            <p><strong>Vinos:</strong> 3.2-5.5</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flashcard" onclick="flipCard(this)">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">
+                            <h3>pH Suelo Agrícola</h3>
+                            <p class="hint">Haz clic para ver el rango óptimo</p>
+                        </div>
+                        <div class="flashcard-back">
+                            <p><strong>Rango óptimo:</strong> 6.0 - 7.0</p>
+                            <p>Permite mejor absorción de nutrientes</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flashcard" onclick="flipCard(this)">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">
+                            <h3>pH Sangre Humana</h3>
+                            <p class="hint">Haz clic para ver el valor</p>
+                        </div>
+                        <div class="flashcard-back">
+                            <p><strong>pH normal:</strong> 7.4</p>
+                            <p>Rango vital: 7.35 - 7.45</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Quiz -->
+    <section id="quiz" class="section">
+        <div class="container">
+            <h2>Quiz de Evaluación</h2>
+            <p class="section-description">Pon a prueba tus conocimientos</p>
+            
+            <div class="quiz-container">
+                <div id="quiz-start" class="quiz-start">
+                    <h3>¿Listo para comenzar?</h3>
+                    <p>Este quiz contiene 10 preguntas sobre pH y ácido-base</p>
+                    <button onclick="startQuiz()" class="btn-primary">Comenzar Quiz</button>
+                </div>
+
+                <div id="quiz-questions" class="quiz-questions" style="display: none;">
+                    <div class="quiz-header">
+                        <span id="question-counter">Pregunta 1 de 10</span>
+                        <span id="score-display">Puntos: 0</span>
+                    </div>
+                    
+                    <div id="question-container" class="question-container">
+                        <!-- Las preguntas se cargan dinámicamente -->
+                    </div>
+
+                    <div class="quiz-navigation">
+                        <button id="prev-btn" onclick="previousQuestion()" class="btn-secondary" disabled>Anterior</button>
+                        <button id="next-btn" onclick="nextQuestion()" class="btn-primary">Siguiente</button>
+                    </div>
+                </div>
+
+                <div id="quiz-results" class="quiz-results" style="display: none;">
+                    <h3>¡Quiz Completado!</h3>
+                    <div class="result-score">
+                        <span id="final-score">0</span>
+                        <span>de 10</span>
+                    </div>
+                    <p id="result-message"></p>
+                    <div id="review-section" class="review-section">
+                        <h4>Revisión de Respuestas:</h4>
+                        <div id="review-container"></div>
+                    </div>
+                    <button onclick="restartQuiz()" class="btn-primary">Intentar de Nuevo</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2024 Universidad de Lima - Facultad de Ciencias</p>
+            <p>Portal de Aprendizaje: pH y Control Ácido-Base</p>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
