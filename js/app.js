@@ -303,7 +303,17 @@ let currentQuiz = 1;
 let currentQuestion = 0;
 let score = 0;
 let userAnswers = [];
+let currentQuizQuestions = []; // <-- NUEVA VARIABLE: Guardará las 4 preguntas al azar
 
+// NUEVA FUNCIÓN: Mezcla un array y devuelve solo las primeras 'cantidad' preguntas
+function obtenerPreguntasAleatorias(arr, cantidad) {
+    const copia = [...arr];
+    for (let i = copia.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [copia[i], copia[j]] = [copia[j], copia[i]]; // Intercambio
+    }
+    return copia.slice(0, cantidad);
+}
 // Seleccionar quiz
 function selectQuiz(quizNumber) {
     currentQuiz = quizNumber;
@@ -321,7 +331,11 @@ function selectQuiz(quizNumber) {
     
     currentQuestion = 0;
     score = 0;
-    userAnswers = new Array(quizData[quizNumber].length).fill(null);
+
+    // SELECCIONAR 4 PREGUNTAS AL AZAR SOLO DEL QUIZ ACTUAL
+    currentQuizQuestions = obtenerPreguntasAleatorias(quizData[quizNumber], 4);
+    userAnswers = new Array(currentQuizQuestions.length).fill(null);
+
     loadQuestion();
     updateScore();
 }
@@ -331,43 +345,43 @@ function startQuiz() {
 }
 
 function loadQuestion() {
-    const questionData = quizData[currentQuiz][currentQuestion];
+    // USAR el array de preguntas aleatorias, no el original completo
+    const questionData = currentQuizQuestions[currentQuestion];
     const container = document.getElementById('question-container');
     
     document.getElementById('question-counter').textContent = 
-        `Pregunta ${currentQuestion + 1} de ${quizData[currentQuiz].length}`;
-    
+        `Pregunta ${currentQuestion + 1} de ${currentQuizQuestions.length}`;
+
     let optionsHTML = '';
-    const letters = ['A', 'B', 'C', 'D'];
-    
-    questionData.options.forEach((option, index) => {
+    const letters = ['A', 'B', 'C', 'D']; // Corregido: eliminado espacio en 'B '
+
+    questionData.options.forEach((option, index) => { // Corregido: eliminado espacio en =>
         const selectedClass = userAnswers[currentQuestion] === index ? 'selected' : '';
         optionsHTML += `
-            <div class="option ${selectedClass}" onclick="selectOption(${index})">
-                <span class="option-letter">${letters[index]}</span>
-                <span>${option}</span>
-            </div>
+             <div class="option ${selectedClass}" onclick="selectOption(${index})">
+                 <span class="option-letter">${letters[index]}</span>
+                 <span>${option}</span>
+             </div>
         `;
     });
-    
+
     container.innerHTML = `
-        <div class="question-text">${questionData.question}</div>
-        <div class="options">${optionsHTML}</div>
+         <div class="question-text">${questionData.question}</div>
+         <div class="options">${optionsHTML}</div>
     `;
-    
+
     // Actualizar botones
     document.getElementById('prev-btn').disabled = currentQuestion === 0;
     document.getElementById('next-btn').textContent = 
-        currentQuestion === quizData[currentQuiz].length - 1 ? 'Finalizar' : 'Siguiente';
+        currentQuestion === currentQuizQuestions.length - 1 ? 'Finalizar' : 'Siguiente'; // Corregido: quizDat a
 }
-
 function selectOption(index) {
     userAnswers[currentQuestion] = index;
     loadQuestion();
 }
 
 function nextQuestion() {
-    if (currentQuestion < quizData[currentQuiz].length - 1) {
+if (currentQuestion < currentQuizQuestions.length - 1) {
         currentQuestion++;
         loadQuestion();
     } else {
@@ -386,17 +400,17 @@ function previousQuestion() {
 function calculateScore() {
     score = 0;
     userAnswers.forEach((answer, index) => {
-        if (answer === quizData[currentQuiz][index].correct) {
+        // USAR currentQuizQuestions en lugar de quizData
+        if (answer === currentQuizQuestions[index].correct) {
             score++;
         }
     });
 }
-
 function showResults() {
     document.getElementById('quiz-questions').style.display = 'none';
     document.getElementById('quiz-results').style.display = 'block';
     
-    const totalQuestions = quizData[currentQuiz].length;
+const totalQuestions = currentQuizQuestions.length;
     document.getElementById('final-score').textContent = score;
     document.getElementById('total-questions').textContent = totalQuestions;
     
@@ -434,32 +448,31 @@ function showResults() {
 
 function generateReview() {
     const reviewContainer = document.getElementById('review-container');
-    const letters = ['A', 'B', 'C', 'D'];
-    
+    const letters = ['A', 'B', 'C', 'D']; // Corregido: eliminado espacio
     let reviewHTML = '';
-    
-    quizData[currentQuiz].forEach((question, index) => {
+
+    // RECORRER currentQuizQuestions en lugar de quizData[currentQuiz]
+    currentQuizQuestions.forEach((question, index) => { // Corregido: eliminado espacio en =>
         const userAnswer = userAnswers[index];
         const isCorrect = userAnswer === question.correct;
         
         reviewHTML += `
-            <div class="review-item">
-                <div class="review-question">${index + 1}. ${question.question}</div>
-                <div class="review-answer ${isCorrect ? 'correct' : 'incorrect'}">
+             <div class="review-item">
+                 <div class="review-question">${index + 1}. ${question.question}</div>
+                 <div class="review-answer ${isCorrect ? 'correct' : 'incorrect'}">
                     Tu respuesta: ${userAnswer !== null ? letters[userAnswer] + '. ' + question.options[userAnswer] : 'Sin responder'}
-                </div>
+                 </div>
                 ${!isCorrect ? `
-                    <div class="review-answer correct">
+                     <div class="review-answer correct">
                         Respuesta correcta: ${letters[question.correct]}. ${question.options[question.correct]}
-                    </div>
+                     </div>
                 ` : ''}
-            </div>
+             </div>
         `;
     });
-    
+
     reviewContainer.innerHTML = reviewHTML;
 }
-
 function restartCurrentQuiz() {
     selectQuiz(currentQuiz);
 }
