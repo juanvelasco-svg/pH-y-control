@@ -945,3 +945,182 @@ body {
         width: 100%;
     }
 }
+/* Química Verde */
+.green-chemistry-box {
+    background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+    padding: 30px;
+    border-radius: 15px;
+    margin: 30px 0;
+    border-left: 5px solid #4CAF50;
+}
+
+.green-chemistry-box h3 {
+    color: #2e7d32;
+    margin-bottom: 25px;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.green-chemistry-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.green-item {
+    background: var(--white);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
+}
+
+.green-item:hover {
+    transform: translateY(-5px);
+}
+
+.green-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.green-item h4 {
+    color: var(--ulima-blue);
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.green-item p {
+    font-size: 0.9rem;
+    color: var(--gray);
+}
+
+/* Estequiometría mejorada */
+.stoichiometry-intro {
+    background: var(--gray-light);
+    padding: 15px;
+    border-radius: 8px;
+    margin: 20px 0;
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+.mass-conservation-box {
+    background: var(--white);
+    border: 2px solid var(--ulima-orange);
+    border-radius: 15px;
+    padding: 25px;
+    margin: 25px 0;
+    box-shadow: var(--shadow);
+}
+
+.mass-conservation-box h4 {
+    color: var(--ulima-blue);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.chemical-equation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 20px;
+    background: var(--gray-light);
+    border-radius: 10px;
+}
+
+.equation-row,
+.mass-row,
+.total-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.equation-row {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--ulima-dark);
+}
+
+.mass-row {
+    font-size: 1.2rem;
+    color: var(--ulima-orange);
+    font-weight: 600;
+}
+
+.total-row {
+    font-size: 1.1rem;
+    color: var(--success);
+    font-weight: 700;
+    padding-top: 10px;
+    border-top: 2px solid var(--ulima-orange);
+    margin-top: 10px;
+}
+
+.compound {
+    min-width: 100px;
+    text-align: center;
+    padding: 8px;
+    background: var(--white);
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.mass {
+    min-width: 100px;
+    text-align: center;
+    padding: 8px;
+    background: var(--white);
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.plus {
+    font-weight: bold;
+    color: var(--ulima-blue);
+}
+
+.arrow {
+    color: var(--ulima-orange);
+    font-size: 1.5rem;
+}
+
+.equals {
+    font-weight: bold;
+    color: var(--success);
+    font-size: 1.3rem;
+}
+
+.total-label {
+    background: var(--success);
+    color: var(--white);
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-weight: 700;
+}
+
+/* Responsive para ecuaciones */
+@media (max-width: 768px) {
+    .equation-row,
+    .mass-row {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .arrow,
+    .plus {
+        transform: rotate(90deg);
+    }
+    
+    .compound,
+    .mass {
+        min-width: 80px;
+        font-size: 0.9rem;
+    }
+}
